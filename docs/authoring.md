@@ -35,7 +35,29 @@ qa/<locale>/<name>/
 
 - Folder name = `name` in `SKILL.md` frontmatter (kebab-case, lowercase)
 - English paths only under `skills/` and `references/`
-- Flat `references/*.md`; entity YAML under `references/semantic/` when needed
+- Keep small references flat. Use shallow subdirectories for substantial command libraries or distinct workflows. Each reference link states its read condition. Entity YAML belongs under `references/semantic/` when needed.
+
+## Content roles
+
+Use these roles when they help separate substantial content. A simple skill can keep them in one file.
+
+| Role | Retained content |
+| --- | --- |
+| Shared | Setup, authentication, common syntax, and shared constraints |
+| Service | Service syntax, operation discovery, command effects, limits, and conditional dependencies |
+| Helper | A reusable operation with a clear purpose, inputs, outputs, and effects |
+| Recipe | A goal, prerequisites, and dependent steps with verified commands |
+| Persona | The role goal, capability selection, workflow routing, and output requirements |
+
+`SKILL.md` is the entrypoint. It can perform the Persona role. Supporting documents need not become separate skills.
+
+Command contracts have one canonical definition. FCAPS or other category views reference that definition. Keep exact semantics and dependency bindings in the contract. Obtain detailed parameters from runtime CLI help. Record an output field only when it prevents an error or connects commands.
+
+Load only the current branch. A workflow with a known target can link directly to the required reference. Directory depth does not require reading each parent index.
+
+Development drafts stay in `development/` until promotion. Registration and bilingual release requirements apply when a draft becomes an installable package. If a task limits recipes to planning, keep each recipe to a goal and one or two guidance sentences, and mark it as planned.
+
+Validate command facts before authoring contracts. Distinguish help validation, live calls with data, successful empty results, and blocked calls. Preserve evidence in an ignored workspace. Do not describe help or dry-run results as successful resource operations.
 
 ## SKILL.md frontmatter
 

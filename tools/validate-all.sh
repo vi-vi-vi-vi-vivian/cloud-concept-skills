@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# Traverse qa/<locale>/<skill>/validate.sh, matching the GitHub workflow.
+# Validate installed locale pairs; development QA requires explicit local evidence.
 set -euo pipefail
 
 ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
@@ -14,7 +14,7 @@ while IFS= read -r validate; do
     status=1
   fi
   printf '\n'
-done < <(find "$ROOT/qa" -mindepth 3 -maxdepth 3 -name validate.sh -type f | sort)
+done < <(find "$ROOT/qa/en" "$ROOT/qa/cn" -mindepth 2 -maxdepth 2 -name validate.sh -type f | sort)
 
 [[ "$status" -eq 0 ]] || exit "$status"
 printf 'OK: all skill QA passed\n'

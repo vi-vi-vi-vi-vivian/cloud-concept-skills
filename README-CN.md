@@ -20,8 +20,8 @@ English: [README.md](README.md).
 ## 开发中
 
 [`huaweicloud-ecs-troubleshooting`](development/huaweicloud-ecs-troubleshooting/README.md)
-面向华为云 ECS Linux 及关联云服务排障，目前仅完成结构设计，独立存放在 `development/`，
-尚不能安装或使用。
+已完成华为云 ECS 及关联服务的诊断命令契约与资源衔接 Helper，场景 Recipe 仅规划。
+当前独立存放在 `development/`，尚未发布为可安装技能。
 
 ## 安装
 
