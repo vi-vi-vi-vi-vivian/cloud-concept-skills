@@ -1,5 +1,13 @@
 # Changelog
 
+## 1.3.0 - 2026-10-20
+
+### Features
+- Add a development-stage Huawei Cloud ECS troubleshooting skill with verified FCAPS diagnostic command contracts and linked workflows.
+
+### Documentation
+- Record the ECS diagnostic command research and troubleshooting design source tree.
+
 ## 1.2.0 - 2026-10-12
 
 - Clarify Cloud Agent Skills branding in the English and Chinese READMEs and billing QA guidance.
