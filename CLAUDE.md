@@ -17,7 +17,8 @@ Community-maintained Huawei Cloud skills; not an official Huawei Cloud project.
 
 - Organize substantial skills by Shared, Service, Helper, Recipe, and Persona responsibilities. Use the definitions in `docs/authoring.md`; these are content roles, not five mandatory skills or loading stages.
 - Give each command contract one canonical location. Category indexes and workflows link to it. FCAPS is a cross-service index; it does not replace service names or describe execution effects.
-- Keep command semantics, effects, and conditional dependencies in contracts. Discover detailed parameters with the current CLI help. Reuse known identifiers; resolve only missing inputs.
+- Keep command contracts in four columns: command, action, inputs and sources, constraints. Store dated verification records separately by full command ID. Discover detailed parameters with current CLI help; resolve only missing resource identifiers.
+- Define cross-command field bindings once in Helpers, including input type, producer, selection condition, and output field. Preserve command versions and resource scope; refresh help when CLI metadata changes.
 - Classify effects from the documented operation behavior. HTTP methods and operation prefixes alone do not establish read-only behavior.
 - Use shallow reference directories when they reduce unrelated reading. Each pointer states when to read its target. A known workflow can link directly to a needed contract.
 - Preserve the requested implementation scope. A planned recipe contains its goal and one or two guidance sentences; it is not an executable workflow.

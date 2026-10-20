@@ -51,7 +51,7 @@ Use these roles when they help separate substantial content. A simple skill can 
 
 `SKILL.md` is the entrypoint. It can perform the Persona role. Supporting documents need not become separate skills.
 
-Command contracts have one canonical definition. FCAPS or other category views reference that definition. Keep exact semantics and dependency bindings in the contract. Obtain detailed parameters from runtime CLI help. Record an output field only when it prevents an error or connects commands.
+Command contracts have one canonical definition. FCAPS or other category views reference that definition. Use four columns: command, action, inputs and sources, constraints. Keep dated help and live-call records in a separately loaded verification reference, keyed by full command ID. Obtain detailed parameters from runtime CLI help. Define field bindings once in Helpers: input type, producer, selection condition, and output field. A source is conditional on a missing input, not a mandatory predecessor. Preserve command versions and resource scope; refresh help after CLI or metadata changes.
 
 Load only the current branch. A workflow with a known target can link directly to the required reference. Directory depth does not require reading each parent index.
 
