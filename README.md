@@ -22,7 +22,7 @@ Every skill keeps its runtime payload under `skills/<name>/`; QA and evaluations
 
 ## In development
 
-[`huaweicloud-ecs-troubleshooting`](development/huaweicloud-ecs-troubleshooting/README.md)
+[`huawei-cloud-fcaps-diagnostics`](development/huawei-cloud-fcaps-diagnostics/README.md)
 contains verified diagnostic command contracts and resource helpers for Huawei Cloud
 ECS and related services. Recipes remain planned. It stays under `development/`
 and is not published as an installable skill.

@@ -19,7 +19,7 @@ English: [README.md](README.md).
 
 ## 开发中
 
-[`huaweicloud-ecs-troubleshooting`](development/huaweicloud-ecs-troubleshooting/README.md)
+[`huawei-cloud-fcaps-diagnostics`](development/huawei-cloud-fcaps-diagnostics/README.md)
 已完成华为云 ECS 及关联服务的诊断命令契约与资源衔接 Helper，场景 Recipe 仅规划。
 当前独立存放在 `development/`，尚未发布为可安装技能。
 

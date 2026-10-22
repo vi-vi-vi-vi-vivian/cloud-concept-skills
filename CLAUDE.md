@@ -29,3 +29,17 @@ Community-maintained Huawei Cloud skills; not an official Huawei Cloud project.
 ## Billing semantic split
 
 Keep facts, dimensions, measures, and routing thin in `references/semantic/*.yml`. Put CLI contracts, concrete codes, enum values, response paths, and command examples in `references/related-commands.md` and its linked command references.
+
+## FCAPS platform contracts
+
+- Keep FCAPS as the directory skeleton. Use tool/target-system files inside each category; tool entrypoints only route and define tool-specific discovery. Do not duplicate contracts in a second tool hierarchy.
+- Distinguish the agent host, remote target OS, and Kubernetes context. A CLI name or cloud image label alone does not establish the target environment. Preserve command modes that change observation scope or effects.
+- Keep environment-specific evidence separate. A Linux pass is not a Windows pass; local kind is not CCE. Missing tools, no records, authorization failure, and unexecuted conditional collection remain distinct.
+- Read final Markdown commands for post-write validation. Bind successful evidence to the actual row and revision; derive verification summaries from records. Keep source/migration notes and test fixtures outside runtime references.
+
+## Document references
+
+- Keep document routing separate from command contracts. Bundle conditional reading guidance and metadata indexes; keep bulk source text, images and caches outside the install payload.
+- Generate document metadata from a declared source snapshot. Store provenance hashes in QA; review changed sources before changing validated commands. A cached page or successful link check is not current-environment evidence.
+- Prefer publisher-provided Markdown; use the same document's HTML when Markdown yields no article. Verify document identity and body, not the suffix or HTTP status. Keep one catalog entry across formats; record archive and curated-link dates separately.
+- Known commands bypass document lookup. Search catalogs for matching entries rather than loading the whole catalog. Source repair steps do not grant execution authorization.
