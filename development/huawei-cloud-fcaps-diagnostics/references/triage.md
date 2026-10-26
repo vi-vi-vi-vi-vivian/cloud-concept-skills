@@ -11,4 +11,4 @@
 | 用量或费用异常 | A：同范围计量、账单 | 系统利用率只作辅助证据 |
 | Pod 重启、挂载或调度失败 | 可选 Kubernetes 的 F/C/P | 绑定 context、namespace、UID；进入节点前识别 OS |
 
-按 [FCAPS 地图](commands/index.md) 选册。场景配方仍仅为[规划](recipes/boot.md)。其他规划：[登录](recipes/login.md)、[网络](recipes/network.md)、[存储](recipes/storage.md)、[性能](recipes/performance.md)、[崩溃](recipes/crash.md)、[配置](recipes/configuration.md)、[安全](recipes/security.md)、[恢复](recipes/recovery.md)。
+已知场景先查 [Recipe 索引](recipes/index.md)；未覆盖时按 [FCAPS 地图](commands/index.md) 选事实契约。分类入口：[启动](recipes/boot.md)、[登录](recipes/login.md)、[网络](recipes/network.md)、[存储](recipes/storage.md)、[性能](recipes/performance.md)、[崩溃](recipes/crash.md)、[配置](recipes/configuration.md)、[安全](recipes/security.md)、[恢复](recipes/recovery.md)。所有 recipe 为 draft，待补能力不视为执行入口。

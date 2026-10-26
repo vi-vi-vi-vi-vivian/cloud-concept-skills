@@ -1,11 +1,13 @@
 # 登录分诊
 
-| 实际现象 | 下一步 |
-| --- | --- |
-| 华为云 Linux ECS，SSH 建立连接阶段超时 | 读 [SSH 超时诊断](login/ssh-timeout.sop.md) |
-| `Connection refused` | 核对端点、端口和监听证据；专用 recipe 待补，不套超时流程 |
-| `Permission denied` 等认证失败 | 查身份、认证配置和相关日志；专用 recipe 待补 |
-| 主机密钥校验失败 | 核对目标身份及密钥变化证据；专用 recipe 待补 |
-| TCP 已建立后握手/认证超时，或 RDP/VNC 失败 | 保留阶段与日志，按[分诊](../triage.md)选事实；专用 recipe 待补 |
+复用已有目标、时间窗和原始错误，按实际现象读对应 draft 正文。
 
-仅描述“连不上”时先区分管理登录与业务访问；已有错误和环境直接复用。当前流程清单见[索引](index.md)。
+| 现象 / 任务 | 下一步 |
+| --- | --- |
+| TCP 建连超时 | [ssh-timeout](login/ssh-timeout.sop.md) |
+| SSH 认证被拒 | [ssh-auth-failed](login/ssh-auth-failed.sop.md) |
+| Windows RDP 连接/认证/会话失败 | [rdp-unavailable](login/rdp-unavailable.sop.md) |
+
+拒绝连接先核对实际端点、监听及响应来源；主机密钥变化先核对目标身份，握手阶段超时保留具体阶段。VNC 等未覆盖场景走通用分诊，不能套 SSH 建连超时。
+
+未覆盖或描述不明确时回到[分诊](../triage.md)；全部正文见[索引](index.md)。
