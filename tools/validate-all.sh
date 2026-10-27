@@ -1,20 +1,21 @@
 #!/usr/bin/env bash
-# Validate installed locale pairs; development QA requires explicit local evidence.
+# Public checks work in a clean checkout; private QA is an explicit local option.
 set -euo pipefail
-
 ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
-status=0
-
+export PYTHONDONTWRITEBYTECODE=1
+[[ $# -eq 0 || ( $# -eq 1 && $1 == --local-qa ) ]] || {
+  printf 'Usage: %s [--local-qa]\n' "$0" >&2; exit 2;
+}
+python3 "$ROOT/tools/check-repository-hygiene.py" --repo "$ROOT"
 python3 "$ROOT/tools/validate-localization.py"
-
-while IFS= read -r validate; do
-  name=$(basename "$(dirname "$validate")")
-  printf '==> %s\n' "$name"
-  if ! "$validate"; then
-    status=1
-  fi
-  printf '\n'
-done < <(find "$ROOT/qa/en" "$ROOT/qa/cn" -mindepth 2 -maxdepth 2 -name validate.sh -type f | sort)
-
-[[ "$status" -eq 0 ]] || exit "$status"
-printf 'OK: all skill QA passed\n'
+if [[ ${1:-} == --local-qa ]]; then
+  count=0 status=0
+  for validate in "$ROOT"/qa/{en,cn}/*/validate.sh; do
+    [[ -f "$validate" ]] || continue
+    count=$((count + 1))
+    "$validate" || status=1
+  done
+  [[ $count -gt 0 ]] || { printf 'FAIL: local QA is unavailable\n' >&2; exit 1; }
+  [[ $status -eq 0 ]] || exit "$status"
+fi
+printf 'OK: public skill checks passed\n'

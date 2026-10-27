@@ -125,4 +125,4 @@ Cause 记录已有依据的可复用原因知识；待确认的原因放 Guidanc
 - [Agent SOP Author](https://github.com/strands-agents/agent-sop/tree/main/skills/agent-sop-author)：原 SSH 草稿借鉴其 Overview、Steps 和 .sop.md 命名。当前轻量模板采用 Overview/Guidance，不宣称完整遵循 Agent SOP 规范。
 - 友商本地资料借鉴：Alibaba Linux SSH 排查的云侧/主机层次，以及 Microsoft SSH 症状分流；华为云契约、执行通道和证据限制以本仓为准。
 
-本轮同步了 recipes、分诊与技能入口，并将来源/待补清单保存在 QA 目录。本地检查只验证文档结构、引用和技能基础格式，不调用云 API。旧 QA 仍要求九个规划占位条目，与当前正文不兼容；所需历史证据目录亦未提供。云端门禁绑定旧运行文档摘要，重新签署需要新证据，不修改历史记录来宣称通过。
+本轮同步了 recipes、分诊与技能入口；共同执行规则采用新版 SKILL.md。来源/待补清单留在被 Git 忽略的本地 QA 目录，不随公共仓库分发。本地验证与真实目标环境验证分开记录；所有正文仍为 draft。

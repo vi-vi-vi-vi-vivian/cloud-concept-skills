@@ -4,13 +4,12 @@
 
 | 位置 | 唯一职责 |
 | --- | --- |
-| SKILL.md | 目标和按需路由 |
+| SKILL.md | 目标、安全规则、反幻觉规则、易错点和按需路由 |
 | references/commands/<类别>/<工具>.md | 具体命令模式的四列契约 |
 | references/tools/<工具>.md | 工具适用条件、帮助发现、分册导航 |
 | references/documents/index.md | 文档读取条件、来源核对与回退 |
 | references/documents/huaweicloud.md | FCAPS 主题到官方文档及契约的指引 |
 | references/documents/catalog.jsonl | 合并归档与精选来源的元数据；按关键词读取命中项 |
-| references/shared.md | 跨工具约束 |
 | references/execution.md | 执行通道与华为云适配边界 |
 | references/helpers.md | 输入类型、生产者、选择条件、输出绑定 |
 | references/verification/<环境>.md | 独立、带日期和范围的验证摘要 |
@@ -23,7 +22,7 @@ F/C/A/P/S 分别为 fault/configuration/accounting/performance/security。common
 
 入口→FCAPS 类别及环境→所需行；只有输入缺失、通道未确认或需要实测范围时才读 Helper、通道或验证摘要。已知 ID 可直接定位，无强制加载链。工具入口不复制契约。
 
-开发来源和迁移决策位于仓库 docs/design/huawei-cloud-fcaps-diagnostics/。测试代码位于 qa/development/huawei-cloud-fcaps-diagnostics/；原始证据和报告位于忽略的 .workspaces/。运行文档不包含真实目标、凭据或原始日志。
+以当前技能说明、命令契约与文档索引为准。测试代码仅在本机 qa/development/huawei-cloud-fcaps-diagnostics/，不随仓库提交或发布；原始下载、日志和临时报告放到仓库外的临时目录。运行文档不包含真实目标、凭据或原始日志。
 
 先执行帮助及适用查询，再按事实编写；无适用环境的条目保留受阻。写入后从最终契约读取命令复核，结果绑定契约摘要。一次成功不能代表其他系统、集群或全部参数。
 

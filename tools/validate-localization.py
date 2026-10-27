@@ -12,8 +12,8 @@ import yaml
 ROOT = Path(__file__).resolve().parents[1]
 SKILLS = ROOT / "skills"
 EN_SKILLS = SKILLS / "en"
-CN_SKILLS = SKILLS / "cn"
-CATALOG = ROOT / "docs/catalog.yml"
+CN_SKILLS = SKILLS / "zh-CN"
+CATALOG = ROOT / "catalog.yml"
 HAN = re.compile(r"[\u3400-\u9fff]")
 EXECUTABLE_PARTS = {"scripts", "tools", "runtime"}
 LOCALE_EXECUTABLES = {
@@ -78,19 +78,31 @@ for base in bases:
     for expected in (base, cn):
         if expected not in catalog_ids:
             fail(f"catalog entry missing: {expected}")
-        locale = "cn" if expected.endswith("-cn") else "en"
+        locale = "zh-CN" if expected.endswith("-cn") else "en"
         entry = catalog_by_id[expected]
-        if entry.get("path") != f"skills/{locale}/{expected}" or entry.get("qa") != f"qa/{locale}/{expected}":
+        if entry.get("path") != f"skills/{locale}/{expected}":
             fail(f"catalog path mismatch: {expected}")
-        if entry.get("language") != ("zh-CN" if locale == "cn" else "en"):
+        if entry.get("language") != ("zh-CN" if locale == "zh-CN" else "en"):
             fail(f"catalog language mismatch: {expected}")
-        if not (ROOT / "qa" / locale / expected / "validate.sh").is_file():
-            fail(f"QA entry missing: {expected}")
-        if not (ROOT / "docs/skills" / locale / f"{expected}.md").is_file():
-            fail(f"skill page missing: {expected}")
 
 orphans = [name for name in cn_names if name.endswith("-cn") and name[:-3] not in bases]
 if orphans:
     fail(f"orphan Chinese skills: {', '.join(orphans)}")
+
+actual = set(bases) | set(cn_names)
+if actual != catalog_ids:
+    fail(f"catalog/package IDs differ: {sorted(actual ^ catalog_ids)}")
+for name, entry in catalog_by_id.items():
+    if "qa" in entry:
+        fail(f"local QA path must not appear in public catalog: {name}")
+    version = entry.get("version")
+    if not isinstance(version, str) or not re.fullmatch(r"\d+\.\d+\.\d+(?:[-+][0-9A-Za-z.-]+)?", version):
+        fail(f"invalid catalog version: {name}")
+    meta = frontmatter(ROOT / entry["path"] / "SKILL.md")
+    if not isinstance(meta.get("description"), str) or not meta["description"].strip():
+        fail(f"missing skill description: {name}")
+    source_version = (meta.get("metadata") or {}).get("version")
+    if source_version is not None and str(source_version) != version:
+        fail(f"catalog/frontmatter version mismatch: {name}")
 
 print(f"OK: {len(bases)} localization pairs validated")

@@ -552,7 +552,7 @@ CLI：7.2.12。帮助核验来自 2026-10-19；业务调用日期逐条记录。
 | `ECS/ListServerAzInfo/v2` | 通过 | 未执行 | 2026-10-19 | — |
 | `ECS/ListServerBlockDevices/v2` | 通过 | 成功 | 2026-10-19 | 调用区域 cn-north-4 |
 | `ECS/ListServerGroups/v2` | 通过 | 成功空结果 | 2026-10-19 | 调用区域 cn-north-4；本次查询范围为空 |
-| `ECS/ListServerInterfaces/v2` | 通过 | 成功 | 帮助 2026-10-19；调用 2026-10-22 | 调用区域 cn-north-4；资源断言 1 项通过 |
+| `ECS/ListServerInterfaces/v2` | 通过 | 成功 | 帮助 2026-10-19；调用 2026-10-23 | 调用区域 cn-north-4；资源断言 1 项通过 |
 | `ECS/ListServerTags/v2` | 通过 | 未执行 | 2026-10-19 | — |
 | `ECS/ListServerVolumeAttachments/v2` | 通过 | 成功 | 2026-10-19 | 调用区域 cn-north-4 |
 | `ECS/ListServersDetails/v2` | 通过 | 成功 | 2026-10-19 | 调用区域 cn-north-4 |
@@ -597,7 +597,7 @@ CLI：7.2.12。帮助核验来自 2026-10-19；业务调用日期逐条记录。
 | `ECS/ShowRecycleBin/v2` | 通过 | 未执行 | 2026-10-19 | — |
 | `ECS/ShowResetPasswordFlag/v2` | 通过 | 成功 | 2026-10-19 | 调用区域 cn-north-4 |
 | `ECS/ShowSerialConsoleActions/v2` | 通过 | 未执行 | 2026-10-19 | — |
-| `ECS/ShowServer/v2` | 通过 | 成功 | 帮助 2026-10-19；调用 2026-10-22 | 调用区域 cn-north-4；资源断言 1 项通过 |
+| `ECS/ShowServer/v2` | 通过 | 成功 | 帮助 2026-10-19；调用 2026-10-23 | 调用区域 cn-north-4；资源断言 1 项通过 |
 | `ECS/ShowServerAttachableNicNum/v2` | 通过 | 未执行 | 2026-10-19 | — |
 | `ECS/ShowServerBlockDevice/v2` | 通过 | 未执行 | 2026-10-19 | — |
 | `ECS/ShowServerConsoleOutput/v2` | 通过 | 成功 | 2026-10-19 | 调用区域 cn-north-4 |
@@ -622,17 +622,17 @@ CLI：7.2.12。帮助核验来自 2026-10-19；业务调用日期逐条记录。
 | `EIP/ListEipBandwidths/v3` | 通过 | 未执行 | 2026-10-19 | — |
 | `EIP/ListProjectGeipBindings/v3` | 通过 | 未执行 | 2026-10-19 | — |
 | `EIP/ListPublicipPool/v3` | 通过 | 未执行 | 2026-10-19 | — |
-| `EIP/ListPublicips/v2` | 通过 | 成功 | 帮助 2026-10-19；调用 2026-10-22 | 调用区域 cn-north-4；资源断言 1 项通过 |
+| `EIP/ListPublicips/v2` | 通过 | 成功 | 帮助 2026-10-19；调用 2026-10-23 | 调用区域 cn-north-4；资源断言 1 项通过 |
 | `EIP/ListPublicips/v3` | 通过 | 未执行 | 2026-10-19 | — |
 | `EIP/ListQuotas/v2` | 通过 | 未执行 | 2026-10-19 | — |
 | `EIP/ListTenantVpcIgws/v3` | 通过 | 未执行 | 2026-10-19 | — |
 | `EIP/NeutronListFloatingIps/v2` | 通过 | 未执行 | 2026-10-19 | — |
 | `EIP/NeutronShowFloatingIp/v2` | 通过 | 未执行 | 2026-10-19 | — |
-| `EIP/ShowBandwidth/v2` | 通过 | 成功 | 帮助 2026-10-19；调用 2026-10-22 | 调用区域 cn-north-4；资源断言 1 项通过 |
+| `EIP/ShowBandwidth/v2` | 通过 | 成功 | 帮助 2026-10-19；调用 2026-10-23 | 调用区域 cn-north-4；资源断言 1 项通过 |
 | `EIP/ShowBandwidthRule/v3` | 通过 | 未执行 | 2026-10-19 | — |
 | `EIP/ShowInternalVpcIgw/v3` | 通过 | 未执行 | 2026-10-19 | — |
 | `EIP/ShowPublicip/v2` | 通过 | 未执行 | 2026-10-19 | — |
-| `EIP/ShowPublicip/v3` | 通过 | 成功 | 帮助 2026-10-19；调用 2026-10-22 | 调用区域 cn-north-4；资源断言 1 项通过 |
+| `EIP/ShowPublicip/v3` | 通过 | 成功 | 帮助 2026-10-19；调用 2026-10-23 | 调用区域 cn-north-4；资源断言 1 项通过 |
 | `EIP/ShowPublicipPool/v3` | 通过 | 未执行 | 2026-10-19 | — |
 | `EIP/ShowResourcesJobDetail/v2` | 通过 | 未执行 | 2026-10-19 | — |
 
@@ -761,7 +761,7 @@ CLI：7.2.12。帮助核验来自 2026-10-19；业务调用日期逐条记录。
 | `EVS/ShowRecyclePolicy/v2` | 通过 | 未执行 | 2026-10-19 | — |
 | `EVS/ShowSnapshot/v2` | 通过 | 未执行 | 2026-10-19 | — |
 | `EVS/ShowVersion/v2` | 通过 | 未执行 | 2026-10-19 | — |
-| `EVS/ShowVolume/v2` | 通过 | 成功 | 帮助 2026-10-19；调用 2026-10-22 | 调用区域 cn-north-4；资源断言 1 项通过 |
+| `EVS/ShowVolume/v2` | 通过 | 成功 | 帮助 2026-10-19；调用 2026-10-23 | 调用区域 cn-north-4；资源断言 1 项通过 |
 | `EVS/ShowVolumeInRecycle/v2` | 通过 | 未执行 | 2026-10-19 | — |
 | `EVS/ShowVolumeTags/v2` | 通过 | 未执行 | 2026-10-19 | — |
 
@@ -1274,7 +1274,7 @@ CLI：7.2.12。帮助核验来自 2026-10-19；业务调用日期逐条记录。
 | `VPC/ListSecurityGroups/v2` | 通过 | 未执行 | 2026-10-19 | — |
 | `VPC/ListSecurityGroups/v3` | 通过 | 未执行 | 2026-10-19 | — |
 | `VPC/ListSubNetworkInterfaces/v3` | 通过 | 未执行 | 2026-10-19 | — |
-| `VPC/ListSubnets/v2` | 通过 | 成功 | 帮助 2026-10-19；调用 2026-10-22 | 调用区域 cn-north-4；资源断言 1 项通过 |
+| `VPC/ListSubnets/v2` | 通过 | 成功 | 帮助 2026-10-19；调用 2026-10-23 | 调用区域 cn-north-4；资源断言 1 项通过 |
 | `VPC/ListTrafficMirrorFilterRules/v3` | 通过 | 未执行 | 2026-10-19 | — |
 | `VPC/ListTrafficMirrorFilters/v3` | 通过 | 未执行 | 2026-10-19 | — |
 | `VPC/ListTrafficMirrorSessions/v3` | 通过 | 未执行 | 2026-10-19 | — |
@@ -1307,18 +1307,18 @@ CLI：7.2.12。帮助核验来自 2026-10-19；业务调用日期逐条记录。
 | `VPC/ShowFlowLog/v2` | 通过 | 未执行 | 2026-10-19 | — |
 | `VPC/ShowNetworkIpAvailabilities/v2` | 通过 | 未执行 | 2026-10-19 | — |
 | `VPC/ShowPort/v2` | 通过 | 未执行 | 2026-10-19 | — |
-| `VPC/ShowPort/v3` | 通过 | 成功 | 帮助 2026-10-19；调用 2026-10-22 | 调用区域 cn-north-4；资源断言 1 项通过 |
+| `VPC/ShowPort/v3` | 通过 | 成功 | 帮助 2026-10-19；调用 2026-10-23 | 调用区域 cn-north-4；资源断言 1 项通过 |
 | `VPC/ShowPrivateip/v2` | 通过 | 未执行 | 2026-10-19 | — |
 | `VPC/ShowQuota/v2` | 通过 | 未执行 | 2026-10-19 | — |
 | `VPC/ShowQuota/v3` | 通过 | 未执行 | 2026-10-19 | — |
 | `VPC/ShowRouteTable/v2` | 通过 | 成功 | 2026-10-19 | 调用区域 cn-north-4 |
 | `VPC/ShowSecurityGroup/v2` | 通过 | 未执行 | 2026-10-19 | — |
-| `VPC/ShowSecurityGroup/v3` | 通过 | 成功 | 帮助 2026-10-19；调用 2026-10-22 | 调用区域 cn-north-4；资源断言 1 项通过 |
+| `VPC/ShowSecurityGroup/v3` | 通过 | 成功 | 帮助 2026-10-19；调用 2026-10-23 | 调用区域 cn-north-4；资源断言 1 项通过 |
 | `VPC/ShowSecurityGroupRule/v2` | 通过 | 未执行 | 2026-10-19 | — |
 | `VPC/ShowSecurityGroupRule/v3` | 通过 | 成功 | 2026-10-19 | 调用区域 cn-north-4 |
 | `VPC/ShowSubNetworkInterface/v3` | 通过 | 未执行 | 2026-10-19 | — |
 | `VPC/ShowSubNetworkInterfacesQuantity/v3` | 通过 | 未执行 | 2026-10-19 | — |
-| `VPC/ShowSubnet/v2` | 通过 | 成功 | 帮助 2026-10-19；调用 2026-10-22 | 调用区域 cn-north-4；资源断言 1 项通过 |
+| `VPC/ShowSubnet/v2` | 通过 | 成功 | 帮助 2026-10-19；调用 2026-10-23 | 调用区域 cn-north-4；资源断言 1 项通过 |
 | `VPC/ShowTrafficMirrorFilter/v3` | 通过 | 未执行 | 2026-10-19 | — |
 | `VPC/ShowTrafficMirrorFilterRule/v3` | 通过 | 未执行 | 2026-10-19 | — |
 | `VPC/ShowTrafficMirrorSession/v3` | 通过 | 未执行 | 2026-10-19 | — |
@@ -1477,4 +1477,4 @@ CLI：7.2.12。帮助核验来自 2026-10-19；业务调用日期逐条记录。
 ## 资源衔接
 
 H-port、H-subnet、H-volume、H-eip 的历史资源衔接检查在 2026-10-19 通过。
-当前契约修订的复核：2026-10-22，10/10 项通过。完整记录保留在本地验收报告中。
+当前契约修订的复核：2026-10-23，10/10 项通过。完整记录保留在本地验收报告中。

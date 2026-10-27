@@ -37,3 +37,22 @@ __pycache__/
 *$py.class
 .pytest_cache/
 .mypy_cache/
+
+# Local-only research, learning copies, scratch work and generated reports
+/references/
+/study/
+/research/
+/analysis/
+/workspace/
+/workspaces/
+/tmp/
+/temp/
+/.tmp/
+/.cache/
+/*.ses
+
+# Local documentation stays on this machine; never commit or publish it
+/docs/
+
+# Private maintainer QA; never commit or publish
+/qa/

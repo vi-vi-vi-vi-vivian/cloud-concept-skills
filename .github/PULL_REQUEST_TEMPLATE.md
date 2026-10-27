@@ -1,22 +1,14 @@
-## Summary
+# Summary
 
-<!-- What skill or repo change does this PR introduce? -->
-
-## Skill
-
-- [ ] New skill
-- [ ] Update existing skill
-- [ ] Repo / tooling only
-
-**Skill name:** <!-- e.g. huawei-cloud-billing-scout -->
+<!-- Describe the skill or repository change. -->
 
 ## Checklist
 
-- [ ] `skills/<name>/` contains runtime files only (no evals/tests inside)
-- [ ] `qa/<name>/validate.sh` passes locally (`./tools/validate-all.sh`)
-- [ ] `docs/catalog.yml` updated (if new or renamed skill)
-- [ ] `docs/skills/<name>.md` updated (if user-facing behavior changed)
+- [ ] Only task-related runtime files, repository tooling, and discovery documentation are included.
+- [ ] `qa/`, `docs/`, analysis materials, and generated reports remain local and untracked.
+- [ ] `./tools/validate-all.sh` passes without local QA files.
+- [ ] Locale pairs, `catalog.yml`, and README installation links agree.
 
-## Test plan
+## Validation
 
-<!-- How did you verify? -->
+<!-- Describe public checks and any separately run local QA; do not commit its files or reports. -->

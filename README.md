@@ -1,24 +1,25 @@
-# Cloud Agent Skills
+# Huawei Cloud Agent Skills
 
 [![skills.sh](https://skills.sh/b/concept-git/cloud-concept-skills)](https://skills.sh/concept-git/cloud-concept-skills)
 
-Community-maintained Cloud skills for billing analysis, pre-order cost estimation and
+Community-maintained Huawei Cloud skills for billing analysis, pre-order cost estimation and
 controlled provisioning, and account real-name onboarding. Three capabilities ship as six localized
 skills: English uses the base name and Simplified Chinese adds `-cn`. This project is not an
-official Cloud product.
+official Huawei Cloud product.
 
-Every skill keeps its runtime payload under `skills/<name>/`; QA and evaluations live under
-`qa/<name>/` and are not installed with the skill.
+Every skill keeps its runtime payload under `skills/<locale>/<name>/`; QA and evaluations remain private on the maintainer's machine and are not committed or installed.
 
 中文说明见 [README-CN.md](README-CN.md).
 
 ## Skills
 
-| English                                                                                | 中文                                                                                         | Purpose                                            |
-| -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- | -------------------------------------------------- |
-| [`huawei-cloud-billing-scout`](docs/skills/en/huawei-cloud-billing-scout.md)           | [`huawei-cloud-billing-scout-cn`](docs/skills/cn/huawei-cloud-billing-scout-cn.md)           | Read-only billing analysis and reconciliation.     |
-| [`huawei-cloud-cost-estimation`](docs/skills/en/huawei-cloud-cost-estimation.md)       | [`huawei-cloud-cost-estimation-cn`](docs/skills/cn/huawei-cloud-cost-estimation-cn.md)       | Current-response quotes and guarded provisioning.  |
-| [`huawei-cloud-account-onboarding`](docs/skills/en/huawei-cloud-account-onboarding.md) | [`huawei-cloud-account-onboarding-cn`](docs/skills/cn/huawei-cloud-account-onboarding-cn.md) | Read-only real-name status and face-scan guidance. |
+| English | 中文 | Version | Purpose |
+| --- | --- | --- | --- |
+| [`huawei-cloud-billing-scout`](skills/en/huawei-cloud-billing-scout/SKILL.md) | [`huawei-cloud-billing-scout-cn`](skills/zh-CN/huawei-cloud-billing-scout-cn/SKILL.md) | 2.3.9 | Read-only billing analysis and reconciliation. |
+| [`huawei-cloud-cost-estimation`](skills/en/huawei-cloud-cost-estimation/SKILL.md) | [`huawei-cloud-cost-estimation-cn`](skills/zh-CN/huawei-cloud-cost-estimation-cn/SKILL.md) | 3.2.4 | Current-response quotes and guarded provisioning. |
+| [`huawei-cloud-account-onboarding`](skills/en/huawei-cloud-account-onboarding/SKILL.md) | [`huawei-cloud-account-onboarding-cn`](skills/zh-CN/huawei-cloud-account-onboarding-cn/SKILL.md) | 1.0.0 | Read-only real-name status and face-scan guidance. |
+
+Discovery metadata: [catalog.yml](catalog.yml).
 
 ## In development
 
@@ -29,37 +30,59 @@ and is not published as an installable skill.
 
 ## Install
 
-Requires Node.js for `npx`. The skills additionally require
-[KooCLI](https://support.huaweicloud.com/intl/en-us/productdesc-hcli/hcli_01.html) 7.2+; they do not
-install it automatically.
+Requires Node.js 22.20+ and Git. Copy a command below and run it from your project directory. These commands install to Codex in the current project.
 
-Base names install English. Append `-cn` for Simplified Chinese.
+Running the cloud skills also requires [KooCLI](https://support.huaweicloud.com/intl/en-us/productdesc-hcli/hcli_01.html) 7.2+; the skills do not install it automatically.
 
-ClawHub publishes only the English `skills/en` editions; Chinese editions remain on GitHub.
+Use `--agent claude-code` or `--agent cursor` for another agent; add `--global` to install across projects. See the [installer options](https://github.com/vercel-labs/skills/blob/main/docs/commands.md).
 
-```bash
-npx skills add concept-git/cloud-concept-skills \
-  --skill <skill-name> \
-  --agent cursor \
-  --copy -y
-```
-
-`--agent` accepts `cursor`, `claude-code`, or `codex`. List available skills with:
+### English editions
 
 ```bash
-npx skills add concept-git/cloud-concept-skills --list
+npx --yes skills add concept-git/cloud-concept-skills --skill huawei-cloud-billing-scout huawei-cloud-cost-estimation huawei-cloud-account-onboarding --agent codex --copy --yes
 ```
 
-Agent-specific notes: [Cursor](docs/agents/cursor.md) · [Claude Code](docs/agents/claude-code.md) ·
-[Codex](docs/agents/codex.md) · [Hermes](docs/agents/hermes.md).
+### Simplified Chinese editions
 
-Read each skill before use: skills run with the agent's permissions. Billing and onboarding are
-read-only. Provisioning is limited to the documented allowlist and confirmation gates; unsubscribe
-is console-guided only.
+```bash
+npx --yes skills add concept-git/cloud-concept-skills --skill huawei-cloud-billing-scout-cn huawei-cloud-cost-estimation-cn huawei-cloud-account-onboarding-cn --agent codex --copy --yes
+```
+
+### Install one skill
+
+**`huawei-cloud-billing-scout`**
+
+```bash
+npx --yes skills add concept-git/cloud-concept-skills --skill huawei-cloud-billing-scout --agent codex --copy --yes
+```
+
+**`huawei-cloud-cost-estimation`**
+
+```bash
+npx --yes skills add concept-git/cloud-concept-skills --skill huawei-cloud-cost-estimation --agent codex --copy --yes
+```
+
+**`huawei-cloud-account-onboarding`**
+
+```bash
+npx --yes skills add concept-git/cloud-concept-skills --skill huawei-cloud-account-onboarding --agent codex --copy --yes
+```
+
+### List available skills
+
+```bash
+npx --yes skills add concept-git/cloud-concept-skills --list
+```
+
+English payloads live in `skills/en/`; Simplified Chinese payloads live in `skills/zh-CN/` and keep the `-cn` skill names. ClawHub publishes English editions only.
+
+Billing and onboarding remain read-only. Provisioning follows the skill allowlist, cost review, and confirmation gates; unsubscribe is console-guided only.
 
 ## Contributing
 
-[docs/CONTRIBUTING.md](docs/CONTRIBUTING.md) · [docs/authoring.md](docs/authoring.md)
+`qa/` is private and untracked; public checks do not depend on it. Run `./tools/validate-all.sh --local-qa` only when local QA is available.
+
+Project rules and repository ownership: [CLAUDE.md](CLAUDE.md).
 
 ```bash
 ./tools/validate-all.sh

@@ -15,7 +15,7 @@ status: draft
 
 ## Guidance
 
-执行按[共同约束](../../shared.md)，远程取证按[通道](../../execution.md)；结果按[报告字段](../../report.md)记录。
+执行按[入口规则](../../../SKILL.md)，远程取证按[通道](../../execution.md)；结果按[报告字段](../../report.md)记录。
 
 ### 核对统计口径
 

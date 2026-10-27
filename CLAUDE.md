@@ -1,45 +1,64 @@
 # cloud-concept-skills
 
-Community-maintained Huawei Cloud skills; not an official Huawei Cloud project.
+Community-maintained Huawei Cloud skills; this is not an official Huawei Cloud project.
 
-## Repository contract
+## Repository ownership
 
-- `skills/<name>/` contains the install payload only. Put gates, evals, and `skillcheck.toml` under `qa/<name>/`.
-- Run `./qa/<name>/validate.sh` for a changed skill or `./tools/validate-all.sh` for the repository.
-- Keep `skills/`, `qa/` (`VERSION`, changelog), `docs/catalog.yml`, and `docs/skills/<name>.md` synchronized.
-- English lives at `skills/en/<name>`; Simplified Chinese at `skills/cn/<name>-cn`. Update pairs together under `docs/localization.md`; `tools/validate-localization.py` is the parity gate.
-- ClawHub publishes only `skills/en`; never run ClawHub sync against `skills/cn`.
-- Never commit credentials, `.env*`, generated workspaces, or gate reports.
-- Do not auto-install `hcloud`. Real BSS calls run only when a skill-specific opt-in environment variable enables them.
-- Billing and onboarding stay read-only. Cost-estimation creates stay within the allowlist and confirmation gates; unsubscribe stays console-only.
+| Repository | Owns |
+| --- | --- |
+| `concept-skills` | Software concepts, semantic modeling, knowledge organization, and visual learning. |
+| `cloud-concept-skills` | Huawei Cloud operations, billing, controlled provisioning, and account onboarding. |
+| `myoffice-skills` | Office workflows, presentations, source notes, repository guidance, and Agent DX tooling. |
 
-## Skill structure and loading
+## Directory contract
 
-- Organize substantial skills by Shared, Service, Helper, Recipe, and Persona responsibilities. Use the definitions in `docs/authoring.md`; these are content roles, not five mandatory skills or loading stages.
-- Give each command contract one canonical location. Category indexes and workflows link to it. FCAPS is a cross-service index; it does not replace service names or describe execution effects.
-- Keep command contracts in four columns: command, action, inputs and sources, constraints. Store dated verification records separately by full command ID. Discover detailed parameters with current CLI help; resolve only missing resource identifiers.
-- Define cross-command field bindings once in Helpers, including input type, producer, selection condition, and output field. Preserve command versions and resource scope; refresh help when CLI metadata changes.
-- Classify effects from the documented operation behavior. HTTP methods and operation prefixes alone do not establish read-only behavior.
-- Use shallow reference directories when they reduce unrelated reading. Each pointer states when to read its target. A known workflow can link directly to a needed contract.
-- Preserve the requested implementation scope. A planned recipe contains its goal and one or two guidance sentences; it is not an executable workflow.
-- Keep unfinished skills under `development/`. Publish, register, and create localization pairs only when promoting a draft to the installable catalog.
-- Verify CLI facts before writing contracts. Record help checks and live API calls separately. Empty responses, permission failures, and successful resource queries are distinct results. Help or dry-run success does not establish live API success.
-- Keep validation scripts outside runtime references. Store raw outputs and validation reports in an ignored workspace; redact credentials and sensitive response fields.
+| Directory | Contract |
+| --- | --- |
+| `skills/en/<name>/`, `skills/zh-CN/<name>-cn/` | Self-contained install payloads, including required `references/`, assets and runtime scripts. |
+| `qa/` | Private local validation, fixtures and reports; ignored by Git and absent from public checkouts. |
+| `catalog.yml` | Tracked discovery metadata used by QA and publishing tools. |
+| `docs/` | Concise local notes and examples; ignored by Git and never required by QA or distribution. |
+| `tools/`, `.githooks/`, `.github/` | Repository tooling, local commit/push gates and CI. |
 
-## Billing semantic split
+Learning copies, downloaded repositories, process notes, raw outputs and generated eval workspaces
+belong outside the checkout, normally in a task-specific temporary directory. Delete them when no
+longer needed. Preserve runtime `skills/**/references/` and maintained fixtures/examples.
 
-Keep facts, dimensions, measures, and routing thin in `references/semantic/*.yml`. Put CLI contracts, concrete codes, enum values, response paths, and command examples in `references/related-commands.md` and its linked command references.
+## Change and release rules
 
-## FCAPS platform contracts
+- Update the owning repository; keep sibling projects independent and link rather than copy their skills.
+- Keep localized pairs, declared source versions and `catalog.yml` consistent; the catalog is the public version record. English uses the base
+  name and `language: en`; Chinese adds `-cn` and `language: zh-CN`. Paired `translation_of` values
+  name each other. Translate prose while preserving commands, safety gates and observable behavior.
+  The repository `VERSION` and per-skill catalog versions have separate scopes.
+- Run `./tools/validate-all.sh` for public package checks; it must work without `qa/`.
+  Run `./tools/validate-all.sh --local-qa` only for available local QA; no behavioral or live-service result is implied by public checks.
+- Set `git config core.hooksPath .githooks` once per checkout. Ignore rules and commit/push/CI hygiene checks
+  keep local-only files out of Git, including files added with force.
+- Commit and publish only within user authorization. ClawHub receives English payloads only;
+  GitHub retains both languages. Verify remote contents before announcing a release.
+- Treat credentials, local installs and caches as local-only. Keep only the current release notes;
+  rewriting Git history or deleting remote releases requires explicit user authorization.
+- Keep `qa/`, `docs/`, analysis material and generated reports local; exclude them even when force-added.
 
-- Keep FCAPS as the directory skeleton. Use tool/target-system files inside each category; tool entrypoints only route and define tool-specific discovery. Do not duplicate contracts in a second tool hierarchy.
-- Distinguish the agent host, remote target OS, and Kubernetes context. A CLI name or cloud image label alone does not establish the target environment. Preserve command modes that change observation scope or effects.
-- Keep environment-specific evidence separate. A Linux pass is not a Windows pass; local kind is not CCE. Missing tools, no records, authorization failure, and unexecuted conditional collection remain distinct.
-- Read final Markdown commands for post-write validation. Bind successful evidence to the actual row and revision; derive verification summaries from records. Keep source/migration notes and test fixtures outside runtime references.
+## Cloud-specific rules
 
-## Document references
-
-- Keep document routing separate from command contracts. Bundle conditional reading guidance and metadata indexes; keep bulk source text, images and caches outside the install payload.
-- Generate document metadata from a declared source snapshot. Store provenance hashes in QA; review changed sources before changing validated commands. A cached page or successful link check is not current-environment evidence.
-- Prefer publisher-provided Markdown; use the same document's HTML when Markdown yields no article. Verify document identity and body, not the suffix or HTTP status. Keep one catalog entry across formats; record archive and curated-link dates separately.
-- Known commands bypass document lookup. Search catalogs for matching entries rather than loading the whole catalog. Source repair steps do not grant execution authorization.
+- Keep active drafts under `development/` with optional private `qa/development/`; they are outside the
+  installable catalog until explicitly promoted. Source-document routing is runtime data, not a study archive.
+- Do not auto-install `hcloud` or collect credentials. Real BSS tests require the skill-specific
+  opt-in variable; defaults stay offline. Billing and onboarding remain read-only. Provisioning
+  stays within the allowlist and confirmation gates; unsubscribe stays console-only.
+- Verify current CLI help before changing contracts. Classify effects from operation behavior,
+  not the HTTP verb or operation name. Keep help checks, live results, absent data and permission
+  failures distinct; one environment's success does not prove another environment works.
+- Keep one canonical command contract with command, action, inputs/sources and constraints.
+  Define field bindings once, retaining producer, type, selection condition, output and version.
+  Service/Helper/Recipe/Persona/Shared are responsibility roles, not mandatory loading stages.
+- FCAPS groups tool/target-system contracts. Distinguish agent host, target OS and Kubernetes
+  context; preserve observation scope. Keep unfinished recipes brief and non-executable.
+- Keep billing facts/dimensions/measures thin in semantic YAML; place CLI enums and examples in
+  command references. Use document catalogs only when the command is unknown. Known commands
+  route directly to contracts; a cached document or source-repair instruction grants no execution authority.
+- Bind document metadata and QA evidence to declared source snapshots/hashes. Prefer the publisher's
+  Markdown, then the same article's HTML; verify article identity and body. Store raw downloads,
+  screenshots, clones and logs outside the checkout; keep reproducible validation fixtures.

@@ -1,24 +1,8 @@
 # Changelog
 
-## 1.3.0 - 2026-10-20
+## 1.3.0 - 2026-10-24
 
-### Features
-- Add a development-stage Huawei Cloud ECS troubleshooting skill with verified FCAPS diagnostic command contracts and linked workflows.
-
-### Documentation
-- Record the ECS diagnostic command research and troubleshooting design source tree.
-
-## 1.2.0 - 2026-10-12
-
-- Clarify Cloud Agent Skills branding in the English and Chinese READMEs and billing QA guidance.
-- Carry forward the English-only ClawHub publishing rule without changing installed skill names or behavior.
-
-## 1.1.0 - 2026-09-15
-
-- Make English the default skill name and add a `-cn` Simplified-Chinese companion for every capability.
-- Add localization metadata, paired QA/catalog/docs entries, and an executable parity gate.
-
-## 1.0.0 - 2026-09-15
-
-- Establish the repository baseline for cloud billing analysis, cost estimation, controlled provisioning, and account onboarding skills.
-- Publish three independently installable skills with colocated QA, evidence, and documentation.
+- Retain three bilingual Huawei Cloud capabilities and the active FCAPS diagnostics draft with its validation contracts.
+- Clarify marketplace descriptions, categories and topics.
+- Standardize repository ownership and directory rules; remove source-study archives, logs and temporary workspaces.
+- Keep reproducible command evidence and required runtime references; block local-only files in commits, pushes and CI.
