@@ -42,6 +42,8 @@ metadata:
 
 ## 按需读取
 
+未知命令或文章时，先按[搜索 CLI](references/search.md)运行 `scripts/search.py search` 检索 L0/L1 导航与具体条目，获取少量候选和分面，再用 `show <ID>` 读取选中条目；已知 ID 可直接 show。脚本路径相对技能根目录，仅发现和读取，不执行命令；无覆盖时按下列入口继续，不把零命中当作不存在。
+
 - 已知命令或文章时，直接读取对应条目。
 - 查现场事实，先用[命令摘要](references/commands/.abstract.md)判断范围，再从[命令概览](references/commands/.overview.md)选择类别和环境。
 - 查诊断步骤，先用[场景摘要](references/recipes/.abstract.md)判断范围，再从[场景概览](references/recipes/.overview.md)选择文章并核对适用条件。
