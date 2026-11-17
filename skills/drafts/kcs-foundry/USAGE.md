@@ -182,6 +182,23 @@ material-pack-01/
 
 隐藏文件、常见依赖目录不采集；选中范围内的符号链接拒绝跟随。原始材料包是独立核对依据，运行中不要改写它。
 
+### 从排障任务记录导入
+
+从[主技能的待确认目录](../huawei-cloud-fcaps-diagnostics/knowledge/README.md#任务记录与交接)中选取有复用价值的 Markdown。维护者先核对实际观测与证据定位，确认记录已经脱敏，并保留未确认项。将确认后的文件放入本次交接目录。下面的命令只选取一个明确的文件，路径和别名替换成实际值。
+
+```bash
+python skills/drafts/kcs-foundry/scripts/prepare_materials.py \
+  --source /path/to/reviewed-task-records \
+  --kind ticket \
+  --source-name internal-ecs-task-records \
+  --include ecs-ssh-001-20261116T143000.md \
+  --output /path/to/ecs-ssh-001-materials
+```
+
+更新已有知识时，将完整 KB 复制到独立的候选工作区，保留 wiki、来源快照、provenance 及 `.openkb/hashes.json`，并在候选环境配置获准的模型与凭据。首次试点可按第三节初始化一个独立的候选 KB。按下面的预演和编译步骤运行，将 `--materials` 换成上面的材料包，将 `--kb` 指向候选 KB。
+
+编译后查看 `extraction-report.md` 列出的变更，对照任务记录与证据检查适用条件、处置结果和根因。比如“重启后恢复，根因未确认”不能写成“已确认服务异常是根因”。涉及已有卡片时，同时核对旧适用条件和依据是否保留。按第五节完成复核后，再将通过复核的候选 KB 作为正式版本交付。
+
 ### 2. 预演
 
 以下使用上面的工单包；若使用 skill 包，替换 `--materials`：
